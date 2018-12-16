@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Shuta</string>
+    <string name="loginBtn">Login</string>
+    <string name="passwordHint">Password</string>
+    <string name="emailHint">UserEmail</string>
+    <string name="login_name">Login</string>
 </resources>
