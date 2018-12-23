@@ -1,6 +1,7 @@
 package com.is238.master.shuta;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,7 +20,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+    public void loginButton(View view) {
 
+        Intent landingPageIntent = new Intent(LoginActivity.this,LandingPageActivity.class);
+        startActivity(landingPageIntent);
+    }
 
-
+    public void resetPassword(View view) {
+        Intent resetPasswordIntent = new Intent(LoginActivity.this,PasswordReset.class);
+        startActivity(resetPasswordIntent);
+    }
 }
