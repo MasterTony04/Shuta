@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".LandingPageActivity" />
-        <activity android:name=".PasswordReset"></activity>
+        <activity android:name=".PasswordReset" />
+        <activity android:name=".StaffLandingActivity"></activity>
     </application>
 
 </manifest>

@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void loginButton(View view) {
 
-        Intent landingPageIntent = new Intent(LoginActivity.this,LandingPageActivity.class);
+        Intent landingPageIntent = new Intent(LoginActivity.this,StaffLandingActivity.class);
         startActivity(landingPageIntent);
     }
 

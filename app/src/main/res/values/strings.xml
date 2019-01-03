@@ -4,4 +4,9 @@
     <string name="passwordHint">Password</string>
     <string name="RegNumberHint">RegNumber</string>
     <string name="login_name">Login</string>
+    <string name="classes">Classes</string>
+    <string name="subjects">Subjects</string>
+    <string name="students">Students</string>
+    <string name="staff">Staff</string>
+    <string name="title_activity_staff_landing_page">StaffLandingPage</string>
 </resources>
