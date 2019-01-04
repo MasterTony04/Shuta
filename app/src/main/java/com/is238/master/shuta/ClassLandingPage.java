@@ -12,7 +12,5 @@ public class ClassLandingPage extends AppCompatActivity {
         setContentView(R.layout.activity_class_landing_page);
     }
 
-    public ListView getClasslist() {
-        return classlist;
-    }
+
 }
