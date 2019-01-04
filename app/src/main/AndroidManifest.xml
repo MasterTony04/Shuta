@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.is238.master.shuta">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,7 +23,8 @@
         </activity>
         <activity android:name=".LandingPageActivity" />
         <activity android:name=".PasswordReset" />
-        <activity android:name=".StaffLandingActivity"></activity>
+        <activity android:name=".StaffLandingActivity" />
+        <activity android:name=".StudentLandingPage"></activity>
     </application>
 
 </manifest>

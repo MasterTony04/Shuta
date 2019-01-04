@@ -8,5 +8,11 @@
     <string name="subjects">Subjects</string>
     <string name="students">Students</string>
     <string name="staff">Staff</string>
+    <string name="viewresults">View Results</string>
+    <string name="sub_teachers">Subjects V.S Teachers</string>
+    <string name="Sub_Code">Subject Code</string>
+    <string name="subject">Subject</string>
+    <string name="marks">Marks</string>
+    <string name="teacher">Teacher</string>
     <string name="title_activity_staff_landing_page">StaffLandingPage</string>
 </resources>
