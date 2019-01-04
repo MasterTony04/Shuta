@@ -8,6 +8,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
         EditText reg_no_text, passwordTxt;
@@ -31,16 +32,23 @@ public class LoginActivity extends AppCompatActivity {
 
         if(username.equals("2016-04-01686") && password.equals("tonynikiazi")){
             landingPageIntent  = new Intent(LoginActivity.this,StudentLandingPage.class);
+            startActivity(landingPageIntent);
         }
         else if (username.equals("123456789") && password.equals("teacher")){
             landingPageIntent = new Intent(LoginActivity.this,StaffLandingActivity.class);
+            startActivity(landingPageIntent);
+        }
+        else if(username.equals("admin") && password.equals("administrator")) {
+            landingPageIntent = new Intent(LoginActivity.this,AdminActivity.class);
+            startActivity(landingPageIntent);
         }
         else {
-            landingPageIntent = new Intent(LoginActivity.this,LandingPageActivity.class);
+            Toast.makeText(this, "Invalid login", Toast.LENGTH_SHORT).show();
+
         }
 
 
-        startActivity(landingPageIntent);
+
     }
 
     private void init(){
