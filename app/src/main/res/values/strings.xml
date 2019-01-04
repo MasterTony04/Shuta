@@ -4,6 +4,7 @@
     <string name="passwordHint">Password</string>
     <string name="RegNumberHint">RegNumber</string>
     <string name="login_name">Login</string>
+    <string name="classes">Classes</string>
     <string name="subjects">Subjects</string>
     <string name="students">Students</string>
     <string name="staff">Staff</string>
@@ -14,8 +15,5 @@
     <string name="marks">Marks</string>
     <string name="teacher">Teacher</string>
     <string name="title_activity_staff_landing_page">StaffLandingPage</string>
-    <string name="classes">Classes</string>
-    <string name="forgot_password_click_here">Forgot Password? Click here</string>
-    <string name="remember_me">Remember Me</string>
-    <string name="todo">TODO</string>
+    <string name="createclass">Add Class</string>
 </resources>
