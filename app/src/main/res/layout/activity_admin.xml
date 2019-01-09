@@ -104,12 +104,12 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:text="Staff"
+            android:text="Admin"
             android:textColor="#000000"
             android:textSize="14dp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.63"
+            app:layout_constraintHorizontal_bias="0.646"
             app:layout_constraintStart_toStartOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="@+id/imageView"
             app:layout_constraintVertical_bias="1.0" />
@@ -123,8 +123,8 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginTop="30dp"
+        android:layout_marginRight="8dp"
         android:orientation="horizontal">
 
         <Button
@@ -175,12 +175,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/btnGreen"
-            android:drawableTop="@drawable/ic_results_upload"
+            android:drawableTop="@drawable/student_ic"
             android:paddingLeft="16dp"
             android:paddingTop="8dp"
             android:paddingRight="16dp"
             android:paddingBottom="5dp"
-            android:text="Upload Results"
+            android:text="@string/students"
             android:textAllCaps="false"
             android:textColor="#e8e9e9" />
 
@@ -197,7 +197,7 @@
             android:paddingTop="8dp"
             android:paddingRight="16dp"
             android:paddingBottom="5dp"
-            android:text="View Students"
+            android:text="@string/staff"
             android:textAllCaps="false"
             android:textColor="#e8e9e9" />
 
