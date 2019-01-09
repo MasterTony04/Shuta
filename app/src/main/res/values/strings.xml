@@ -16,4 +16,9 @@
     <string name="teacher">Teacher</string>
     <string name="title_activity_staff_landing_page">StaffLandingPage</string>
     <string name="createclass">Add Class</string>
+    <string name="manageclass">Manage Class</string>
+    <string name="formone">FORM ONE</string>
+    <string name="formtwo">FORM TWO</string>
+    <string name="formthree">FORM THREE</string>
+    <string name="formfour">FORM FOUR</string>
 </resources>

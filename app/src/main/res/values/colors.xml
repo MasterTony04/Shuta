@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimary">#008507</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="btnColor">#00897B</color>
+    <color name="btnColor">#00897b</color>
     <color name="btnGreen">#00A012</color>
-    <color name="btnBlue">#002868</color>
+    <color name="btnBlue">#1a335b</color>
     <color name="btnOrange">#F88000</color>
     <color name="btnPink">#DF3AF8</color>
-    <color name="btnBluePale">#0188D0</color>
+    <color name="btnBluePale">#abd8f0</color>
 </resources>
