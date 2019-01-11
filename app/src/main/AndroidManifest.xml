@@ -25,8 +25,7 @@
         <activity android:name=".PasswordReset" />
         <activity android:name=".StaffLandingActivity" />
         <activity android:name=".StudentLandingPage" />
-        <activity android:name=".studentForm" />
-        <activity android:name=".activity_teacher_form"></activity>
+        <activity android:name=".AdminActivity"></activity>
     </application>
 
 </manifest>
