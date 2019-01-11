@@ -19,4 +19,9 @@
     <string name="subj">Subject Name</string>
     <string name="teach">Teachers Name</string>
     <string name="add">ADD</string>
+    <string name="id">ID</string>
+    <string name="clas">CLASS</string>
+    <string name="sectionview">SEC</string>
+    <string name="subjectview">SUBJECT</string>
+    <string name="teacherview">TEACHER</string>
 </resources>

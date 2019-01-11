@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:text="id" />
+        android:text="@string/id" />
 
     <TextView
         android:id="@+id/textView3"
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:text="Form III" />
+        android:text="@string/clas" />
 
     <TextView
         android:id="@+id/textView6"
@@ -29,19 +29,19 @@
         android:layout_height="wrap_content"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:text="A" />
+        android:text="@string/sectionview" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="TextView" />
+        android:text="@string/subjectview" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="TextView" />
+        android:text="@string/teacherview" />
 </LinearLayout>
