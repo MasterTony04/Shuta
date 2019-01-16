@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(landingPageIntent);
         }
         else if (username.equals("123456789") && password.equals("teacher")){
-            landingPageIntent = new Intent(LoginActivity.this,StaffLandingActivity.class);
+            landingPageIntent = new Intent(LoginActivity.this,ClassLandingPage.class);
             startActivity(landingPageIntent);
         }
         else if(username.equals("admin") && password.equals("administrator")) {

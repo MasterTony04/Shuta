@@ -14,9 +14,9 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="7dp"
-        android:text="Add Class"
-        android:textSize="30sp"
-        android:textColor="@color/btnBlue"/>
+        android:text="Create Class"
+        android:textColor="@color/btnBlue"
+        android:textSize="30sp" />
 
     <EditText
         android:id="@+id/txtclass"
@@ -60,10 +60,10 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="88dp"
-        android:layout_marginLeft="88dp"
-        android:layout_marginEnd="81dp"
-        android:layout_marginRight="81dp"
+        android:layout_marginStart="86dp"
+        android:layout_marginLeft="86dp"
+        android:layout_marginEnd="83dp"
+        android:layout_marginRight="83dp"
         android:layout_marginBottom="144dp"
         android:ems="10"
         android:hint="@string/subj"
@@ -89,6 +89,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="148dp"
         android:layout_marginLeft="148dp"
-        android:layout_marginBottom="63dp"
+        android:layout_marginBottom="61dp"
         android:text="@string/add" />
+
 </RelativeLayout>
