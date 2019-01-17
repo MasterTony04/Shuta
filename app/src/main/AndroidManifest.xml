@@ -42,7 +42,8 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".StaffItemActivity"></activity>
+        <activity android:name=".StaffItemActivity" />
+        <activity android:name=".SubjectLandingPage"></activity>
     </application>
 
 </manifest>

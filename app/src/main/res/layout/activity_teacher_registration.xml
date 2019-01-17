@@ -81,7 +81,7 @@
 
         <RadioButton
             android:id="@+id/femaleRadioButton"
-            android:layout_width="104dp"
+            android:layout_width="186dp"
             android:layout_height="43dp"
             android:text="Female"
 

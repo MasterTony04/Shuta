@@ -32,8 +32,13 @@ public class AdminActivity extends AppCompatActivity {
                startActivity(staffIntent);
            }
        });
-
-
+       subjectbtn.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent subjectIntent = new Intent(AdminActivity.this,SubjectLandingPage.class);
+               startActivity(subjectIntent);
+           }
+       });
 
 
     }
@@ -47,7 +52,5 @@ public class AdminActivity extends AppCompatActivity {
          staffbtn=(Button)findViewById(R.id.staffbtn);
 
     }
-
-
 
 }

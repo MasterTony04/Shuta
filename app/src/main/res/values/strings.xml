@@ -25,7 +25,7 @@
     <string name="subjectview">SUBJECT</string>
     <string name="teacherview">TEACHER</string>
     <string name="registerStudent">REGISTER</string>
-    <string name="registerStudentTitle">STUDENT REGISTRATION</string>
+    <string name="registerStudentTitle">Student Registration</string>
     <string name="studentDateOfBirth">Date of birth</string>
     <string name="studentHome">Home</string>
     <string name="StudentParentNumbet">Parent/Guardian number</string>
@@ -34,5 +34,10 @@
     <string name="teacherName">Name</string>
     <string name="teacherId">ID</string>
     <string name="teacherNumber">Number</string>
-    <string name="staffList">Staff List</string>"
+    <string name="staffList">Staff List</string>
+    <string name="sub">Create Subject</string>
+    <string name="subjectNam">Enter Subject Name</string>
+    <string name="subjectCode">Enter Subject Code</string>"
+    <string name="createSub">CREATE</string>
+    <string name="cancelSub">CANCEL</string>
 </resources>
