@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SubjectLandingPage">
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="169dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="109dp"
+        android:layout_marginLeft="109dp"
+        android:layout_marginTop="34dp"
+        android:textSize="24dp"
+        android:textColor="@color/btnColor"
+        android:hint="@string/sub"
+        />
+
+
+    <EditText
+        android:id="@+id/txtsubject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/txtsubjectcode"
+        android:layout_alignLeft="@+id/txtsubjectcode"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="119dp"
+        android:ems="10"
+        android:hint="@string/subjectNam"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/txtsubjectcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="220dp"
+        android:ems="10"
+        android:hint="@string/subjectCode"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/buttonsubject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
+        android:layout_marginBottom="133dp"
+        android:hint="@string/createSub"
+        android:background="@color/btnColor"
+        />
+
+    <Button
+        android:id="@+id/cancelbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/buttonsubject"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="83dp"
+        android:layout_marginRight="83dp"
+        android:layout_marginBottom="-1dp"
+        android:hint="@string/cancelSub"
+        android:background="@color/btnColor"/>
+</RelativeLayout>
