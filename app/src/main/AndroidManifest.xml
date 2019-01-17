@@ -26,8 +26,8 @@
         <activity android:name=".StaffLandingActivity" />
         <activity android:name=".StudentLandingPage" />
         <activity android:name=".AdminActivity" />
-        <activity android:name=".activity_teacher_registration"/>
-        <activity android:name=".activity_student_registration"/>
+        <activity android:name=".activity_teacher_registration" />
+        <activity android:name=".activity_student_registration" />
         <activity
             android:name=".ClassLandingPage"
             android:exported="true" />
@@ -41,6 +41,8 @@
             android:authorities="com.is238.master.shuta.ClassProvider"
             android:enabled="true"
             android:exported="true" />
+
+        <activity android:name=".StaffItemActivity"></activity>
     </application>
 
 </manifest>
