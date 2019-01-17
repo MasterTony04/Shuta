@@ -30,4 +30,8 @@
     <string name="studentHome">Home</string>
     <string name="StudentParentNumbet">Parent/Guardian number</string>
     <string name="studentClass">Class</string>
+    <string name="registerTeacherTitle">TEACHER REGISTRATION</string>
+    <string name="teacherName">Name</string>
+    <string name="teacherId">ID</string>
+    <string name="teacherNumber">Number</string>"
 </resources>
