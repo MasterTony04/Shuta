@@ -1,6 +1,7 @@
 package com.is238.master.shuta;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -48,7 +49,6 @@ public class LoginActivity extends AppCompatActivity {
         }
 
 
-
     }
 
     private void init(){
@@ -56,6 +56,11 @@ public class LoginActivity extends AppCompatActivity {
         passwordTxt = findViewById(R.id.password);
         loginBtn =  findViewById(R.id.loginButton);
         rememberMeChkBx = findViewById(R.id.remberMecheckBox);
+
+        //opening or creating a database
+        SQLiteDatabase shuta_db = openOrCreateDatabase("shuta_db",MODE_PRIVATE, null );
+
+
     }
 
     public void resetPassword(View view) {

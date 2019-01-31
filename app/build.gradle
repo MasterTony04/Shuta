@@ -26,7 +26,15 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
-
+    // https://mvnrepository.com/artifact/com.j256.ormlite/ormlite-android
+//    implementation 'com.j256.ormlite.ormlite-android:5.1'
+//    // https://mvnrepository.com/artifact/com.j256.ormlite/ormlite-core
+//    implementation 'com.j256.ormlite.ormlite-core:5.1'
     implementation 'com.android.support:design:28.0.0'
+
+    // https://mvnrepository.com/artifact/com.j256.ormlite/ormlite-android
+    compile group: 'com.j256.ormlite', name: 'ormlite-android', version: '5.1'
+    // https://mvnrepository.com/artifact/com.j256.ormlite/ormlite-core
+    compile group: 'com.j256.ormlite', name: 'ormlite-core', version: '5.1'
+
 }
