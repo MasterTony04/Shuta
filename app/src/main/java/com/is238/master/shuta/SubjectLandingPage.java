@@ -13,5 +13,5 @@ private static Button subjectButton;
         setContentView(R.layout.activity_subject_landing_page);
 
     }
-
+/*Subject Landing page*/
 }
