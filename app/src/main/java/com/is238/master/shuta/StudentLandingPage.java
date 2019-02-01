@@ -37,5 +37,4 @@ public class StudentLandingPage extends AppCompatActivity {
         counter=2;
         layoutCheck();
     }
-    //mastertony is dangerous
 }
