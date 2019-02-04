@@ -40,16 +40,16 @@
         android:listSelector="#9df19d" />
 
     <android.support.design.widget.FloatingActionButton
-        android:onClick="classform"
         android:layout_width="68dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="80dp"
-        android:layout_marginLeft="14dp"
-        android:layout_marginBottom="21dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginBottom="22dp"
         android:layout_toEndOf="@+id/classWelcome"
         android:layout_toRightOf="@+id/classWelcome"
         android:clickable="true"
+        android:onClick="classform"
         app:srcCompat="@drawable/add_icon_white"
         tools:ignore="VectorDrawableCompat" />
 

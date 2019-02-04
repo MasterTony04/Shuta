@@ -30,11 +30,11 @@ public class LoginActivity extends AppCompatActivity {
         String username = reg_no_text.getText().toString();
         String password = passwordTxt.getText().toString();
 
-        if(username.equals("2016-04-01686") && password.equals("tony")){
+        if(username.equals("2") && password.equals("y")){
             landingPageIntent  = new Intent(LoginActivity.this,StudentLandingPage.class);
             startActivity(landingPageIntent);
         }
-        else if (username.equals("123456789") && password.equals("teacher")){
+        else if (username.equals("1") && password.equals("t")){
             landingPageIntent = new Intent(LoginActivity.this,StaffLandingActivity.class);
             startActivity(landingPageIntent);
 
