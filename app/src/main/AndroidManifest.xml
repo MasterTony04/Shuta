@@ -43,7 +43,8 @@
             android:exported="true" />
 
         <activity android:name=".StaffItemActivity" />
-        <activity android:name=".SubjectLandingPage"></activity>
+         <activity android:name=".SubjectLandingPage"></activity>
+        <activity android:name=".StaffUploadResult"></activity>
     </application>
 
 </manifest>

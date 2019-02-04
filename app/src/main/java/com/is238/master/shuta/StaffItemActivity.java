@@ -15,7 +15,7 @@ public class StaffItemActivity extends AppCompatActivity {
 
     public void staffForm(View view) {
 
-        Intent staffIntent = new Intent(this,activity_student_registration.class);
+        Intent staffIntent = new Intent(this,activity_teacher_registration.class);
         startActivity(staffIntent);
 
         //mmm

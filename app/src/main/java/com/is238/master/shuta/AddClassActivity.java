@@ -14,7 +14,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class AddClassActivity extends AppCompatActivity {
-private static EditText classnam,subname,teachname;
+private static EditText classnam;
 private static Button add;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,39 +31,44 @@ private static Button add;
         dropdownRole.setAdapter(adapter);
         add=(Button)findViewById(R.id.btnadd);
         classnam=(EditText)findViewById(R.id.txtclass);
-        subname=(EditText)findViewById(R.id.txtsubject);
-        teachname=(EditText)findViewById(R.id.txtteacher);
+        Spinner teachname=(Spinner)findViewById(R.id.spinnerTeacher);
+        String[] teachersName = new String[]{"classTeacher","Kant", "Salim"};
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, teachersName);
+        teachname.setAdapter(adapter2);
+    }
+    public  void teacher(){
+
 
     }
 
 
 
     public void onClassAdd() {
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ContentValues values = new ContentValues();
-                values.put(ClassProvider.CLASS,
-                        classnam.getText().toString());
+//        add.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ContentValues values = new ContentValues();
+//                values.put(ClassProvider.CLASS,
+//                        classnam.getText().toString());
+//
+//                values.put(ClassProvider.SECTION,
+//                        ((Spinner)findViewById(R.id.spinnerclass)).getSelectedItem().toString());
+//                values.put(ClassProvider.SUBJECT,
+//                        subname.getText().toString());
+//                values.put(ClassProvider.TEACHER,
+//                        teachname.getText().toString());
+//
+//                Uri uri = getContentResolver().insert(
+//                        ClassProvider.CONTENT_URI, values);
+//                Toast.makeText(getBaseContext(),
+//                        uri.toString(), Toast.LENGTH_LONG).show();
+//
+//                Intent classIntent =new Intent(AddClassActivity.this, ClassLandingPage.class);
+//                startActivityForResult(classIntent,1);
+//                Toast.makeText(AddClassActivity.this,"data inserted sussefully",Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
+}
 
-                values.put(ClassProvider.SECTION,
-                        ((Spinner)findViewById(R.id.spinnerclass)).getSelectedItem().toString());
-                values.put(ClassProvider.SUBJECT,
-                        subname.getText().toString());
-                values.put(ClassProvider.TEACHER,
-                        teachname.getText().toString());
-
-                Uri uri = getContentResolver().insert(
-                        ClassProvider.CONTENT_URI, values);
-                Toast.makeText(getBaseContext(),
-                        uri.toString(), Toast.LENGTH_LONG).show();
-
-                Intent classIntent =new Intent(AddClassActivity.this, ClassLandingPage.class);
-                startActivityForResult(classIntent,1);
-                Toast.makeText(AddClassActivity.this,"data inserted sussefully",Toast.LENGTH_SHORT).show();
-
-            }
-        });
-    }
-/**fgfdkgmfkgfgf**/
 }

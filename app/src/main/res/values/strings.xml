@@ -15,9 +15,9 @@
     <string name="marks">Marks</string>
     <string name="teacher">Teacher</string>
     <string name="title_activity_staff_landing_page">StaffLandingPage</string>
-    <string name="manageclass">Class List</string>
+    <string name="manageclass">Class Name</string>
     <string name="subj">Subject Name</string>
-    <string name="teach">Teachers Name</string>
+    <string name="teach">Class teacher</string>
     <string name="add">Add</string>
     <string name="id">ID</string>
     <string name="clas">CLASS</string>
@@ -28,12 +28,12 @@
     <string name="registerStudentTitle">Student Registration</string>
     <string name="studentDateOfBirth">Date of birth</string>
     <string name="studentHome">Home</string>
-    <string name="StudentParentNumbet">Parent/Guardian number</string>
+    <string name="StudentParentNumber">Parent/Guardian number</string>
     <string name="studentClass">Class</string>
     <string name="registerTeacherTitle">TEACHER REGISTRATION</string>
     <string name="teacherName">Name</string>
     <string name="teacherId">ID</string>
-    <string name="teacherNumber">Number</string>
+    <string name="teacherNumber">Phone Number</string>
     <string name="staffList">Staff List</string>
     <string name="sub">Create Subject</string>
     <string name="subjectNam">Enter Subject Name</string>

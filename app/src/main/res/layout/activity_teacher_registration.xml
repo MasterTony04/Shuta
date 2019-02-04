@@ -17,7 +17,7 @@
         android:layout_marginRight="8dp"
         android:text="@string/registerTeacherTitle"
         android:textColor="@color/btnColor"
-        android:textSize="30dp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,7 +37,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/teacherRegistration" />
+        app:layout_constraintTop_toBottomOf="@+id/teacherRegistration"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/teacherId"
