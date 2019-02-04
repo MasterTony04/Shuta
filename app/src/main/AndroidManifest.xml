@@ -43,8 +43,9 @@
             android:exported="true" />
 
         <activity android:name=".StaffItemActivity" />
-         <activity android:name=".SubjectLandingPage"></activity>
-        <activity android:name=".StaffUploadResult"></activity>
+        <activity android:name=".SubjectLandingPage" />
+        <activity android:name=".StaffUploadResult" />
+        <activity android:name=".TeachersSubjectsView"></activity>
     </application>
 
 </manifest>
