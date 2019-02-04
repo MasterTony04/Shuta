@@ -39,6 +39,15 @@ public class AdminActivity extends AppCompatActivity {
                startActivity(subjectIntent);
            }
        });
+       studentsbtn.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+
+               //nothing is implemented here
+
+               Toast.makeText(getApplicationContext(),"student button is clicked",Toast.LENGTH_SHORT).show();
+           }
+       });
 
 
     }
