@@ -157,7 +157,8 @@
             android:paddingRight="16dp"
             android:paddingTop="8dp"
             android:text="@string/subjects"
-            android:textColor="#e8e9e9" />
+            android:textColor="#e8e9e9"
+            />
 
     </LinearLayout>
 
