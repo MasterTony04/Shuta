@@ -35,17 +35,14 @@
         <activity
             android:name=".AddClassActivity"
             android:exported="true" />
-
-        <provider
-            android:name=".ClassProvider"
-            android:authorities="com.is238.master.shuta.ClassProvider"
-            android:enabled="true"
-            android:exported="true" />
-
         <activity android:name=".StaffItemActivity" />
         <activity android:name=".SubjectLandingPage" />
         <activity android:name=".StaffUploadResult" />
         <activity android:name=".TeachersSubjectsView"></activity>
+        <provider
+            android:name=".Database.ContentProviderDb"
+            android:authorities="com.is238.master.shuta.Database.ContentProviderDb"
+            android:enabled="true"
+            android:exported="true"/>
     </application>
-
 </manifest>

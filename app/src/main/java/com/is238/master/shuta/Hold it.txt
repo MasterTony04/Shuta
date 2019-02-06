@@ -1,0 +1,70 @@
+ DatabaseHelper dbHelper ;
+    public ContentProviderDb() {
+
+    }
+
+    @Override
+    public int delete(Uri uri, String selection, String[] selectionArgs) {
+        String table = getTableName(uri);
+        SQLiteDatabase dataBase=dbHelper.getWritableDatabase();
+        return dataBase.delete(table, selection, selectionArgs);
+    }
+
+    @Override
+    public String getType(Uri uri) {
+        return null;
+    }
+
+    @Override
+    public Uri insert(Uri uri, ContentValues values) {
+        String table = getTableName(uri);
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        long value = database.insert(table, null, values);
+        return Uri.withAppendedPath(CONTENT_URI, String.valueOf(value));
+    }
+
+    @Override
+    public boolean onCreate() {
+        dbHelper = new DatabaseHelper(getContext());
+        return true;
+    }
+
+    @Override
+    public Cursor query(Uri uri, String[] projection, String selection,
+                        String[] selectionArgs, String sortOrder) {
+        String table =getTableName(uri);
+        SQLiteDatabase database = dbHelper.getReadableDatabase();
+        return database.query(table,  projection, selection, selectionArgs, null, null, sortOrder);
+    }
+
+    @Override
+    public int update(Uri uri, ContentValues values, String selection,
+                      String[] selectionArgs) {
+        String table = getTableName(uri);
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        return database.update(table, values, selection, selectionArgs);
+    }
+
+    public static String getTableName(Uri uri){
+        String value = uri.getPath();
+        value = value.replace("/", "");//we need to remove '/'
+        return value;
+    }
+
+
+
+    if(getContentResolver().getType(Contract.AdminContract.CONTENT_URI) != null){
+                Cursor c = getContentResolver().query(Contract.AdminContract.CONTENT_URI,null, null, null, null);
+                while (c.moveToNext()){
+
+                    if(username.equals(c.getString(0))){
+                        if(password.equals(c.getString(1))){
+                            landingPageIntent  = new Intent(LoginActivity.this,AdminActivity.class);
+                            startActivity(landingPageIntent);
+                        }
+                        else {
+                            Toast.makeText(this, "Incorrect Password", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+            }

@@ -1,26 +1,116 @@
 #
-# generated on 2012/06/06 05:55:57
+# generated on 2019/02/01 02:30:29
 #
 # --table-start--
-dataClass=com.example.helloandroid.SimpleData
-tableName=simpledata
+dataClass=com.is238.master.shuta.Database.DatabaseClasses$Teacher
+tableName=teacher
 # --table-fields-start--
 # --field-start--
 fieldName=id
-generatedId=true
+id=true
 # --field-end--
 # --field-start--
-fieldName=string
-indexName=simpledata_string_idx
+fieldName=first_name
 # --field-end--
 # --field-start--
-fieldName=millis
+fieldName=last_name
 # --field-end--
 # --field-start--
-fieldName=date
+fieldName=password
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.is238.master.shuta.Database.DatabaseClasses$Admin
+tableName=admin
+# --table-fields-start--
+# --field-start--
+fieldName=username
+id=true
 # --field-end--
 # --field-start--
-fieldName=even
+fieldName=password
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.is238.master.shuta.Database.DatabaseClasses$Class
+tableName=class
+# --table-fields-start--
+# --field-start--
+fieldName=class_id
+id=true
+# --field-end--
+# --field-start--
+fieldName=class_name
+# --field-end--
+# --field-start--
+fieldName=teacher_id
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.is238.master.shuta.Database.DatabaseClasses$Subject
+tableName=subject
+# --table-fields-start--
+# --field-start--
+fieldName=subject_id
+id=true
+# --field-end--
+# --field-start--
+fieldName=name
+# --field-end--
+# --field-start--
+fieldName=teacher_id
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.is238.master.shuta.Database.DatabaseClasses$Student
+tableName=student
+# --table-fields-start--
+# --field-start--
+fieldName=student_id
+id=true
+# --field-end--
+# --field-start--
+fieldName=first_name
+# --field-end--
+# --field-start--
+fieldName=last_name
+# --field-end--
+# --field-start--
+fieldName=password
+# --field-end--
+# --field-start--
+fieldName=class_id
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.is238.master.shuta.Database.DatabaseClasses$Results
+tableName=results
+# --table-fields-start--
+# --field-start--
+fieldName=comments
+# --field-end--
+# --field-start--
+fieldName=result_id
+id=true
+# --field-end--
+# --field-start--
+fieldName=regNo
+# --field-end--
+# --field-start--
+fieldName=subject_id
+# --field-end--
+# --field-start--
+fieldName=marks
 # --field-end--
 # --table-fields-end--
 # --table-end--

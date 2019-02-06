@@ -1,17 +1,11 @@
 package com.is238.master.shuta;
 
-import android.content.ContentValues;
-import android.content.Intent;
-import android.database.Cursor;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 public class AddClassActivity extends AppCompatActivity {
 private static EditText classnam;
@@ -20,12 +14,16 @@ private static Button add;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_class);
-        initVeiw();
+        initView();
         onClassAdd();
     }
 
-    private void initVeiw(){
+    private void initView(){
         final Spinner dropdownRole = findViewById(R.id.spinnerclass);
+
+
+
+
         String[] items = new String[]{"Section","A", "B"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdownRole.setAdapter(adapter);
@@ -44,6 +42,14 @@ private static Button add;
 
 
     public void onClassAdd() {
+
+
+
+
+
+
+
+
 //        add.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {

@@ -9,4 +9,5 @@
     <color name="btnOrange">#F88000</color>
     <color name="btnPink">#DF3AF8</color>
     <color name="btnBluePale">#abd8f0</color>
+    <color name="row_list_color">#333F3A</color>
 </resources>
