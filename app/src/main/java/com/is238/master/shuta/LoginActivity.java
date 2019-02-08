@@ -118,46 +118,31 @@ public class LoginActivity extends AppCompatActivity {
         try {
             Dao<DatabaseClasses.Admin, String> adminStringDao = getHelper().getDao(DatabaseClasses.Admin.class);
             adminStringDao.createIfNotExists(databaseClasses.adminCall("Admin", "Admin."));
+            Dao<DatabaseClasses.Stream, Integer> streams = getHelper().getDao(DatabaseClasses.Stream.class);
+            streams.delete(databaseClasses.streamCall());
+            for (int i = 0; i < 4; i++) {
+                streams.createIfNotExists(databaseClasses.streamCall((i + 1), setStreamLetter(i)));
+            }
+
+
         } catch (SQLException e) {
             Log.v("", "Admin already exists");
+            e.printStackTrace();
         }
-
-        for(int i=0;i<6;i++){
-            ContentValues values = new ContentValues();
-            values.clear();
-            values.put(Contract.ClassContract.CLASS_ID, i+1);
-            values.put(Contract.ClassContract.CLASS_NAME, "Form " + i+1);
-            values.put(Contract.ClassContract.TEACHER_ID, 1);
-//            getContentResolver().insert(Contract.ClassContract.CONTENT_URI, values);
-
-            try{
-                Dao<DatabaseClasses.Class, Integer> classDao = getHelper().getDao(DatabaseClasses.Class.class);
-                classDao.createIfNotExists(databaseClasses.classCall(i+1, "Form "+ i+1, 1));
-            }
-            catch (Exception e){
-                Log.e("DbHandler", "Error writing to database");
-                e.printStackTrace();
-            }
-
-
-
-            for (int j=0;j<3;j++){
-                ContentValues streamValues = new ContentValues();
-                values.clear();
-                values.put(Contract.StreamContract.CLASS_ID, i+1);
-                values.put(Contract.StreamContract.STREAM_ID, j+1); //should have created an array!
-                if(j==0)
-                    values.put(Contract.StreamContract.LETTER, "A");
-                if(j==1)
-                    values.put(Contract.StreamContract.LETTER, "B");
-                if(j==2)
-                    values.put(Contract.StreamContract.LETTER, "C");
-//                getContentResolver().insert(Contract.StreamContract.contentUri, streamValues);
-            }
-
-        }
-        Log.e("DbHandler", "Data successfully written to the db");
 
         return true;
+    }
+
+    private char setStreamLetter(int i) {
+        if(i==0)
+            return 'A';
+        if(i==1)
+            return 'B';
+        if(i==2)
+            return 'C';
+        if(i==3)
+            return 'D';
+        else
+            return 'E';
     }
 }

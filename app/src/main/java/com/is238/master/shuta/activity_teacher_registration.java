@@ -10,4 +10,6 @@ public class activity_teacher_registration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_registration);
     }
+
+
 }

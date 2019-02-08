@@ -13,7 +13,7 @@ public class DatabaseClasses {
     @DatabaseTable(tableName = Contract.TeacherContract.TABLE_NAME)
     public static class Teacher{
 
-        @DatabaseField(columnName = Contract.TeacherContract._ID, id = true)
+        @DatabaseField(columnName = Contract.TeacherContract._ID, generatedId = true)
         private int id;
         @DatabaseField
         private String first_name;
@@ -21,6 +21,36 @@ public class DatabaseClasses {
         private String last_name;
         @DatabaseField
         private String password;
+        @DatabaseField
+        private String phone_number;
+        @DatabaseField
+        private char gender;
+        @DatabaseField
+        private String regNo;
+
+        public char getGender() {
+            return gender;
+        }
+
+        public void setGender(char gender) {
+            this.gender = gender;
+        }
+
+        public String getRegNo() {
+            return regNo;
+        }
+
+        public void setRegNo(String regNo) {
+            this.regNo = regNo;
+        }
+
+        public String getPhone_number() {
+            return phone_number;
+        }
+
+        public void setPhone_number(String phone_number) {
+            this.phone_number = phone_number;
+        }
 
         Teacher(){
 
@@ -58,11 +88,14 @@ public class DatabaseClasses {
             this.password=password;
         }
 
-        public Teacher(int id,  String first_name, String last_name, String password){
+        public Teacher(int id,  String first_name, String last_name, String password, String phone_number, String regNo, char gender){
             this.id = id;
             this.first_name = first_name;
             this.last_name = last_name;
             this.password = password;
+            this.phone_number = phone_number;
+            this.gender = gender;
+            this.regNo = regNo;
         }
 
 
@@ -72,6 +105,10 @@ public class DatabaseClasses {
             stringBuilder.append(", ").append("first_name=").append(first_name);
             stringBuilder.append(", ").append("last_name=").append(last_name);
             stringBuilder.append(", ").append("password=").append(password);
+            stringBuilder.append(", ").append("phone_number=").append(phone_number);
+            stringBuilder.append(", ").append("gender=").append(gender);
+            stringBuilder.append(", ").append("regNo=").append(regNo);
+
 
             return stringBuilder.toString();
         }
@@ -123,20 +160,31 @@ public class DatabaseClasses {
     @AdditionalAnnotation.DefaultContentMimeTypeVnd(name = Contract.ClassContract.MIMETYPE_NAME, type = Contract.ClassContract.MIMETYPE_TYPE)
     @DatabaseTable(tableName =Contract.ClassContract.TABLE_NAME)
     public static class Class{
-        @DatabaseField(id = true, columnName = BaseColumns._ID)
+        @DatabaseField(columnName = BaseColumns._ID, generatedId = true)
         private int class_id;
         @DatabaseField
         private String class_name;
         @DatabaseField
         private int teacher_id;
+        @DatabaseField
+        private int stream_id;
 
         Class(){
 
         }
-        public Class(int class_id, String class_name, int teacher_id){
-            this.class_id = class_id;
+
+        public int getStream_id() {
+            return stream_id;
+        }
+
+        public void setStream_id(int stream_id) {
+            this.stream_id = stream_id;
+        }
+
+        public Class(String class_name, int teacher_id, int stream_id){
             this.class_name = class_name;
             this.teacher_id = teacher_id;
+            this.stream_id = stream_id;
         }
 
         public int getClass_id() {
@@ -406,8 +454,6 @@ public class DatabaseClasses {
         private static int stream_id;
         @DatabaseField
         private static char letter;
-        @DatabaseField
-        private static int class_id;
 
         public static int getStream_id() {
             return stream_id;
@@ -425,16 +471,8 @@ public class DatabaseClasses {
             Stream.letter = letter;
         }
 
-        public static int getClass_id() {
-            return class_id;
-        }
 
-        public static void setClass_id(int class_id) {
-            Stream.class_id = class_id;
-        }
-
-        public Stream(int stream_id, char letter, int class_id){
-            setClass_id(class_id);
+        public Stream(int stream_id, char letter){
             setLetter(letter);
             setStream_id(stream_id);
         }
@@ -447,7 +485,6 @@ public class DatabaseClasses {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.append("stream_id=").append(stream_id);
             stringBuilder.append(",").append("letter=").append(letter);
-            stringBuilder.append(",").append("class_id=").append(class_id);
             return stringBuilder.toString();
         }
 
@@ -463,20 +500,27 @@ public class DatabaseClasses {
         return new Admin();
     }
 
-    public Teacher teacherCall(int id, String first_name,String last_name, String password){
-        return new Teacher(id, first_name,last_name, password);
+    public Teacher teacherCall(int id, String first_name,String last_name, String password, String phone_number, String regNo, char gender){
+        return new Teacher(id, first_name,last_name, password, phone_number, regNo, gender);
     }
 
     public Teacher teacherCall(){
         return new Teacher();
     }
 
-    public Class classCall(int class_id, String class_name, int teacher_id){
-        return new Class(class_id, class_name,teacher_id);
+    public Class classCall(String class_name, int teacher_id, int stream_id){
+        return new Class(class_name,teacher_id, stream_id);
     }
 
     public Class classCall(){
         return new Class();
+    }
+
+    public Stream streamCall(int stream_id, char letter){
+        return new Stream(stream_id, letter);
+    }
+    public Stream streamCall(){
+        return new Stream();
     }
 
 

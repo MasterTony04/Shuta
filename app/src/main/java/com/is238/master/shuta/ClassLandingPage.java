@@ -30,16 +30,17 @@ public class ClassLandingPage extends AppCompatActivity {
 
     private void displayClasses() {
         Cursor cursor = getContentResolver().query(Contract.ClassContract.contentUri,null,null,null,null);
-
         String [] columns = {
-                Contract.ClassContract.CLASS_NAME,
-                Contract.ClassContract.TEACHER_ID
+                Contract.ClassContract.CLASS_NAME
         };
-        int [] list_items = {R.id.class_name,R.id.class_teacher};
+        int [] list_items = {R.id.class_name};
 
         SimpleCursorAdapter cursorAdapter = new SimpleCursorAdapter(
           getApplicationContext(),
-          R.id.list_row, cursor, columns,list_items
+          R.layout.class_list_row,
+                cursor,
+                columns,
+                list_items
         );
         list_view.setAdapter(cursorAdapter);
     }

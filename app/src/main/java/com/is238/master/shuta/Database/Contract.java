@@ -53,6 +53,9 @@ public class Contract {
         public static final String FIRST_NAME = "first_name";
         public static final String LAST_NAME = "last_name";
         public static final String PASSWORD = "password";
+        public static final String PHONE_NUMBER = "phone_number";
+        public static final String GENDER = "gender";
+        public static final String REGNO = "regNo";
 
 
         // content uri pattern code
@@ -80,6 +83,7 @@ public class Contract {
         public static final String CLASS_ID = "class_id";
         public static final String CLASS_NAME = "class_name";
         public static final String TEACHER_ID = "teacher_id";
+        public static final String STREAM_ID = "stream_id";
 
 
         // content uri pattern code
@@ -190,7 +194,6 @@ public class Contract {
         // feild info
         public static final String STREAM_ID = "stream_id";
         public static final String LETTER = "letter";
-        public static final String CLASS_ID = "class_id";
 
 
         // content uri pattern code

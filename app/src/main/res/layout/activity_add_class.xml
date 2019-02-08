@@ -65,6 +65,7 @@
         android:layout_marginBottom="63dp"
         android:text="@string/add"
         android:textAllCaps="false"
+        android:onClick="onClassAdd"
         />
 
     <Button

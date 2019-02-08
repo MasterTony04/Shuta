@@ -15,7 +15,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     // DatabaseClasses Name
     private static final String DATABASE_NAME = "shuta.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 4;
 
 
     public DatabaseHelper(Context context){
