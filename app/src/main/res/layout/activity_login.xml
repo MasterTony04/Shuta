@@ -105,6 +105,12 @@
 
     </android.support.design.widget.TextInputLayout>
 
+    <Spinner
+        android:id="@+id/lg_spinner"
+        android:layout_width="208dp"
+        android:layout_height="wrap_content"
+        android:dropDownWidth="wrap_content" />
+
     <CheckBox
         android:id="@+id/remberMecheckBox"
         android:layout_width="wrap_content"

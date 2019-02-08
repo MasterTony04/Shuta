@@ -3,14 +3,18 @@ package com.is238.master.shuta;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.wifi.p2p.WifiP2pManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 // sudo chmod a+rwx /dev/kvm
@@ -22,12 +26,16 @@ import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.Dao;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     EditText reg_no_text, passwordTxt;
     Button loginBtn;
     CheckBox rememberMeChkBx;
+    Spinner type;
+    String user_type;
 
 
     //DatabaseClasses
@@ -57,26 +65,64 @@ public class LoginActivity extends AppCompatActivity {
 
         String usernamedb = " ", passworddb = "";
 
-        Log.e("atdgfdgdfsgd", username);
 
-        Cursor c = getContentResolver().query(Contract.AdminContract.CONTENT_URI, null, null, null, null);
-        Log.e("fzghsdgfdfdg", "atleast nmepita hapa");
-        while (c.moveToNext()) {
-            Log.e("Db", c.getString(1));
+        if(user_type == "Admin"){
+            Cursor c = getContentResolver().query(Contract.AdminContract.CONTENT_URI, null, null, null, null);
+            Log.e("fzghsdgfdfdg", "atleast nmepita hapa");
+            while (c.moveToNext()) {
+                Log.e("Db", c.getString(1));
 
-            if (username.equals(c.getString(1))) {
-                if (password.equals(c.getString(0))) {
-                    landingPageIntent = new Intent(LoginActivity.this, AdminActivity.class);
-                    startActivity(landingPageIntent);
+                if (username.equals(c.getString(1))) {
+                    if (password.equals(c.getString(0))) {
+                        landingPageIntent = new Intent(LoginActivity.this, AdminActivity.class);
+                        startActivity(landingPageIntent);
+                    } else {
+                        Toast.makeText(this, "Incorrect Password", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    Toast.makeText(this, "Incorrect Password", Toast.LENGTH_SHORT).show();
+                    //try Teacher Login
+                    Toast.makeText(this, "You are not registered as an Admin", Toast.LENGTH_SHORT).show();
                 }
-            } else {
-                //try Teacher Login
-                Toast.makeText(this, "You are not registered as an Admin", Toast.LENGTH_SHORT).show();
             }
+            c.close();
         }
-        c.close();
+        if(user_type == "Teacher"){
+
+            Cursor c = getContentResolver().query(Contract.TeacherContract.contentUri, null, null, null, null);
+            while (c.moveToNext()) {
+
+                if (username.equals(c.getString(6))) {
+                    if (password.equals(c.getString(1))) {
+                        landingPageIntent = new Intent(LoginActivity.this, StaffLandingActivity.class);
+                        startActivity(landingPageIntent);
+                    } else {
+                        Toast.makeText(this, "Incorrect Password", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    //try Teacher Login
+                    Toast.makeText(this, "You are not registered as a Teacher", Toast.LENGTH_SHORT).show();
+                }
+            }
+            c.close();
+        }
+        if(user_type == "Student"){
+            Cursor c = getContentResolver().query(Contract.StudentContract.contentUri, null, null, null, null);
+            while (c.moveToNext()) {
+
+                if (username.equals(c.getString(8))) {
+                    if (password.equals(c.getString(1))) {
+                        landingPageIntent = new Intent(LoginActivity.this, StudentLandingPage.class);
+                        startActivity(landingPageIntent);
+                    } else {
+                        Toast.makeText(this, "Incorrect Password", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    //try Teacher Login
+                    Toast.makeText(this, "You are not registered as a Student", Toast.LENGTH_SHORT).show();
+                }
+            }
+            c.close();
+        }
 
     }
 
@@ -86,7 +132,18 @@ public class LoginActivity extends AppCompatActivity {
         passwordTxt = findViewById(R.id.password);
         loginBtn = findViewById(R.id.loginButton);
         rememberMeChkBx = findViewById(R.id.remberMecheckBox);
-        Log.e("jkgyuugbvuu", "creating an activity");
+        type = findViewById(R.id.lg_spinner);
+        type.setOnItemSelectedListener(this);
+
+        ArrayList<String> login_types = new ArrayList<>();
+        login_types.add("Admin");
+        login_types.add("Teacher");
+        login_types.add("Student");
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, login_types);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        type.setAdapter(adapter);
+
         databaseHelper = getHelper();
 
     }
@@ -144,5 +201,15 @@ public class LoginActivity extends AppCompatActivity {
             return 'D';
         else
             return 'E';
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        user_type = parent.getItemAtPosition(position).toString();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

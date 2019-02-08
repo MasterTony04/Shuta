@@ -64,7 +64,7 @@ public class activity_student_registration extends AppCompatActivity implements 
     }
 
 
-    protected void getStudentData(View view){
+    public void getStudentData(View view){
         student_Name = findViewById(R.id.studentName);
         student_RegNo = findViewById(R.id.studentRegNo);
         student_Home = findViewById(R.id.st_residence);
