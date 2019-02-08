@@ -19,6 +19,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -28,7 +29,15 @@
         <activity android:name=".StudentLandingPage" />
         <activity android:name=".AdminActivity" />
         <activity android:name=".activity_teacher_registration" />
-        <activity android:name=".activity_student_registration" />
+        <activity android:name=".activity_student_registration">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+
+        </activity>
+
+
+
         <activity
             android:name=".ClassLandingPage"
             android:exported="true" />
