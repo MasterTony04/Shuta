@@ -5,8 +5,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
 
 public class SubjectListActivity extends AppCompatActivity {
+    ListView subjectList;
+
 
    private FloatingActionButton subjAdd;
 
@@ -26,4 +29,12 @@ public class SubjectListActivity extends AppCompatActivity {
         });
     }
 
+
+    protected void init(){
+
+    subjectList.findViewById(R.id.list_subject);
+
+
+
+    }
 }
