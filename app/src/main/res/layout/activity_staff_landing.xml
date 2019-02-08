@@ -144,7 +144,7 @@
 
 
         <Button
-            android:id="@+id/subject"
+            android:id="@+id/subjectsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
@@ -171,7 +171,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/studentbtn"
+            android:id="@+id/uploadtbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/btnGreen"
@@ -186,7 +186,7 @@
 
 
         <Button
-            android:id="@+id/staffbtn"
+            android:id="@+id/viewbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
