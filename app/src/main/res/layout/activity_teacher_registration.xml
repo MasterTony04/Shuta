@@ -59,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/teacherName" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/tr_gender"
         android:layout_width="108dp"
         android:layout_height="84dp"
         android:layout_marginStart="28dp"
@@ -106,7 +106,7 @@
         android:inputType="textPersonName|number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/tr_gender" />
 
     <Button
         android:id="@+id/buttonRegistration"
@@ -120,6 +120,7 @@
         android:layout_marginBottom="8dp"
         android:width="200dp"
         android:background="@color/btnColor"
+        android:onClick="onRegister"
         android:text="@string/registerStudent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

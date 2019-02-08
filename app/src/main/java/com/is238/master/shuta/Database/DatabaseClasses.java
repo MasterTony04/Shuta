@@ -88,8 +88,7 @@ public class DatabaseClasses {
             this.password=password;
         }
 
-        public Teacher(int id,  String first_name, String last_name, String password, String phone_number, String regNo, char gender){
-            this.id = id;
+        public Teacher(String first_name, String last_name, String password, String phone_number, String regNo, char gender){
             this.first_name = first_name;
             this.last_name = last_name;
             this.password = password;
@@ -500,8 +499,8 @@ public class DatabaseClasses {
         return new Admin();
     }
 
-    public Teacher teacherCall(int id, String first_name,String last_name, String password, String phone_number, String regNo, char gender){
-        return new Teacher(id, first_name,last_name, password, phone_number, regNo, gender);
+    public Teacher teacherCall(String first_name,String last_name, String password, String phone_number, String regNo, char gender){
+        return new Teacher(first_name,last_name, password, phone_number, regNo, gender);
     }
 
     public Teacher teacherCall(){
