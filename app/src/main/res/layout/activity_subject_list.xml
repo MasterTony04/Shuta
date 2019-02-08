@@ -8,7 +8,7 @@
     >
 
     <TextView
-        android:id="@+id/classWelcome"
+        android:id="@+id/classSubject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -17,7 +17,7 @@
         android:layout_marginStart="110dp"
         android:layout_marginLeft="110dp"
         android:layout_marginTop="3dp"
-        android:hint="@string/manageclass"
+        android:hint="@string/managesubjects"
         android:textColorHint="@color/btnColor"
         android:textSize="30sp"
         tools:layout_editor_absoluteX="152dp"
@@ -27,28 +27,29 @@
         android:id="@+id/list_subject"
         android:layout_width="match_parent"
         android:layout_height="370dp"
-        android:layout_below="@+id/classWelcome"
+        android:layout_above="@+id/addSubject"
+        android:layout_below="@+id/classSubject"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="14dp"
         android:divider="#86a5e6"
         android:dividerHeight="1dp"
         android:listSelector="#9df19d" />
 
     <android.support.design.widget.FloatingActionButton
+        android:id="@+id/addSubject"
         android:layout_width="68dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="31dp"
-        android:layout_marginLeft="31dp"
-        android:layout_marginBottom="22dp"
-        android:layout_toEndOf="@+id/classWelcome"
-        android:layout_toRightOf="@+id/classWelcome"
+        android:layout_marginEnd="38dp"
+        android:layout_marginRight="38dp"
+        android:layout_marginBottom="32dp"
         android:clickable="true"
-        android:onClick="classform"
         app:srcCompat="@drawable/add_icon_white"
         tools:ignore="VectorDrawableCompat" />
 
