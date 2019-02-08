@@ -35,7 +35,7 @@ public class AdminActivity extends AppCompatActivity {
        subjectbtn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               Intent subjectIntent = new Intent(AdminActivity.this,StaffLandingActivity.class);
+               Intent subjectIntent = new Intent(AdminActivity.this,SubjectListActivity.class);
                startActivity(subjectIntent);
            }
        });

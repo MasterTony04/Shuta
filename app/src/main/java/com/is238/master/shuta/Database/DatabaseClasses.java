@@ -348,7 +348,7 @@ public class DatabaseClasses {
     @AdditionalAnnotation.DefaultContentMimeTypeVnd(name = Contract.SubjectContract.MIMETYPE_NAME, type = Contract.SubjectContract.MIMETYPE_TYPE)
     @DatabaseTable(tableName = Contract.SubjectContract.TABLE_NAME)
     public static class Subject{
-        @DatabaseField(id = true, columnName = BaseColumns._ID)
+        @DatabaseField(generatedId = true, columnName = BaseColumns._ID)
         private int subject_id;
         @DatabaseField
         private String name;
@@ -358,10 +358,9 @@ public class DatabaseClasses {
         Subject(){
 
         }
-        public Subject(int subject_id, String name, int teacher_id){
+        public Subject(String name, int teacher_id){
             this.name = name;
             this.teacher_id = teacher_id;
-            this.subject_id = subject_id;
         }
 
         @Override
@@ -563,6 +562,12 @@ public class DatabaseClasses {
     }
     public Student studentCall(String first_name, String last_name, String password, int class_id, char gender, String phone_number, String residence, String regNo){
         return new Student(first_name,last_name,password,class_id,gender,phone_number,residence,regNo);
+    }
+    public Subject subjectCall(){
+        return new Subject();
+    }
+    public Subject subjectCall(String name, int teacher_id){
+        return new Subject(name, teacher_id);
     }
 
 
