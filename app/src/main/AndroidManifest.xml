@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".SubjectListActivity"></activity>
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -38,11 +39,13 @@
         <activity android:name=".StaffItemActivity" />
         <activity android:name=".SubjectLandingPage" />
         <activity android:name=".StaffUploadResult" />
-        <activity android:name=".TeachersSubjectsView"></activity>
+        <activity android:name=".TeachersSubjectsView" />
+
         <provider
             android:name=".Database.ContentProviderDb"
             android:authorities="com.is238.master.shuta.Database.ContentProviderDb"
             android:enabled="true"
-            android:exported="true"/>
+            android:exported="true" />
     </application>
+
 </manifest>
