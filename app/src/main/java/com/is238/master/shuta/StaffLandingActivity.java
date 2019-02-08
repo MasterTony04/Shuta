@@ -5,16 +5,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class StaffLandingActivity extends AppCompatActivity {
 
     private Button subView,classView,uploadResults,studentView;
+            TextView username;
+    String userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_staff_landing);
         init();
+
+
+        savedInstanceState=getIntent().getExtras();
+
+
+        username.setText(userName=savedInstanceState.getString("USERNAME"));
 
         subView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +67,7 @@ public class StaffLandingActivity extends AppCompatActivity {
         classView=findViewById(R.id.classesbtn);
         uploadResults=findViewById(R.id.uploadtbtn);
         studentView=findViewById(R.id.viewbtn);
+        username=findViewById(R.id.textView2);
 
     }
 
