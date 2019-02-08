@@ -225,7 +225,7 @@ public class DatabaseClasses {
     @AdditionalAnnotation.DefaultContentMimeTypeVnd(name = Contract.StudentContract.MIMETYPE_NAME, type = Contract.StudentContract.MIMETYPE_TYPE)
     @DatabaseTable(tableName = Contract.StudentContract.TABLE_NAME)
     public static class Student{
-        @DatabaseField(id = true, columnName = BaseColumns._ID)
+        @DatabaseField(generatedId = true, columnName = BaseColumns._ID)
         private int student_id;
         @DatabaseField
         private String first_name;
@@ -235,6 +235,46 @@ public class DatabaseClasses {
         private String password;
         @DatabaseField
         private int class_id;
+        @DatabaseField
+        private char gender;
+        @DatabaseField
+        private String residence;
+        @DatabaseField
+        private String phone_number;
+        @DatabaseField
+        private String regNo;
+
+        public char getGender() {
+            return gender;
+        }
+
+        public void setGender(char gender) {
+            this.gender = gender;
+        }
+
+        public String getResidence() {
+            return residence;
+        }
+
+        public void setResidence(String residence) {
+            this.residence = residence;
+        }
+
+        public String getPhone_number() {
+            return phone_number;
+        }
+
+        public void setPhone_number(String phone_number) {
+            this.phone_number = phone_number;
+        }
+
+        public String getRegNo() {
+            return regNo;
+        }
+
+        public void setRegNo(String regNo) {
+            this.regNo = regNo;
+        }
 
         Student(){
 
@@ -253,8 +293,11 @@ public class DatabaseClasses {
             return stringBuilder.toString();
         }
 
-        public Student(int student_id, String first_name, String last_name, String password, int class_id){
-            setStudent_id(student_id);
+        public Student(String first_name, String last_name, String password, int class_id, char gender, String phone_number, String residence, String regNo){
+            setGender(gender);
+            setPhone_number(phone_number);
+            setRegNo(regNo);
+            setResidence(residence);
             setFirst_name(first_name);
             setLast_name(last_name);
             setPassword(password);
@@ -494,32 +537,32 @@ public class DatabaseClasses {
     public Admin adminCall(String username, String password){
         return new Admin(username, password);
     }
-
     public Admin adminCall(){
         return new Admin();
     }
-
     public Teacher teacherCall(String first_name,String last_name, String password, String phone_number, String regNo, char gender){
         return new Teacher(first_name,last_name, password, phone_number, regNo, gender);
     }
-
     public Teacher teacherCall(){
         return new Teacher();
     }
-
     public Class classCall(String class_name, int teacher_id, int stream_id){
         return new Class(class_name,teacher_id, stream_id);
     }
-
     public Class classCall(){
         return new Class();
     }
-
     public Stream streamCall(int stream_id, char letter){
         return new Stream(stream_id, letter);
     }
     public Stream streamCall(){
         return new Stream();
+    }
+    public Student studentCall(){
+        return new Student();
+    }
+    public Student studentCall(String first_name, String last_name, String password, int class_id, char gender, String phone_number, String residence, String regNo){
+        return new Student(first_name,last_name,password,class_id,gender,phone_number,residence,regNo);
     }
 
 

@@ -44,8 +44,8 @@ public class AdminActivity extends AppCompatActivity {
            public void onClick(View v) {
 
                //nothing is implemented here
-
-               Toast.makeText(getApplicationContext(),"student button is clicked",Toast.LENGTH_SHORT).show();
+               Intent studentIntent = new Intent(AdminActivity.this, activity_student_registration.class);
+               startActivity(studentIntent);
            }
        });
 

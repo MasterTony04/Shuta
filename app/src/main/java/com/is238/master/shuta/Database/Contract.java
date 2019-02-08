@@ -114,6 +114,13 @@ public class Contract {
         public static final String FIRST_NAME = "first_name";
         public static final String LAST_NAME = "last_name";
         public static final String CLASS_ID = "class_id";
+        public static final String REGNO = "regNo";
+        public static final String RESIDENCE = "residence";
+        public static final String PHONE = "phone_number";
+        public static final String GENDER = "gender";
+        public static final String PASSWORD = "password";
+
+
 
 
         // content uri pattern code
