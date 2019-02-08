@@ -8,7 +8,7 @@
     >
 
     <TextView
-        android:id="@+id/classSubject"
+        android:id="@+id/students"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="370dp"
         android:layout_above="@+id/addSubject"
-        android:layout_below="@+id/classSubject"
+        android:layout_below="@+id/students"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_marginStart="5dp"

@@ -1,0 +1,49 @@
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity_student_registration"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/students"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="110dp"
+            android:layout_marginLeft="110dp"
+            android:layout_marginTop="3dp"
+            android:hint="Students List"
+            android:textColorHint="@color/btnColor"
+            android:textSize="30sp"
+            tools:layout_editor_absoluteX="152dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <ListView
+            android:id="@+id/list_students"
+            android:layout_width="match_parent"
+            android:layout_height="370dp"
+            android:layout_below="@+id/students"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="14dp"
+            android:divider="#86a5e6"
+            android:dividerHeight="1dp"
+            android:listSelector="#9df19d" />
+
+    </RelativeLayout>
+
+
+   </ScrollView>

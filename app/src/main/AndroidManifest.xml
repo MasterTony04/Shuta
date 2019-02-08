@@ -12,13 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SubjectListActivity"></activity>
+        <activity android:name=".SubjectListActivity" />
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -33,11 +32,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
-
         </activity>
-
-
-
         <activity
             android:name=".ClassLandingPage"
             android:exported="true" />
@@ -55,6 +50,10 @@
             android:authorities="com.is238.master.shuta.Database.ContentProviderDb"
             android:enabled="true"
             android:exported="true" />
+
+        <activity android:name=".SubjectViewActivity" />
+        <activity android:name=".ClassViewTeacher" />
+        <activity android:name=".StudentView"></activity>
     </application>
 
 </manifest>

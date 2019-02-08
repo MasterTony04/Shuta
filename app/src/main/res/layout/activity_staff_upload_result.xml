@@ -1,39 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
     tools:context=".StaffUploadResult">
 
+
     <TextView
-        android:id="@+id/uploadview"
+        android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
-        android:text="TextView" />
+        android:textSize="30dp"
+        android:text="Results Upload"
+        android:textColor="@color/btnColor"
+        android:layout_marginTop="45dp"
+        android:layout_marginBottom="45dp"
+         />
+
+    <Spinner
+        android:id="@+id/studentname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="45dp"
+        >
+
+    </Spinner>
+
+    <Spinner
+        android:id="@+id/studentClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="45dp"
+        >
+
+    </Spinner>
 
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="73dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:hint="Marks"
+        android:layout_marginBottom="30dp"
+        android:id="@+id/marks"
+        />
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="179dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
-</RelativeLayout>
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        >
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="60dp"
+            android:background="@color/btnColor"
+            android:text="Cancel"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/uploadResults"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/btnColor"
+            android:text="Save"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+
+
+</LinearLayout>
