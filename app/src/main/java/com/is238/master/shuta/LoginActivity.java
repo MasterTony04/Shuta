@@ -75,6 +75,9 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                 if (username.equals(c.getString(1))) {
                     if (password.equals(c.getString(0))) {
                         landingPageIntent = new Intent(LoginActivity.this, AdminActivity.class);
+
+                        //extract username to next intent
+                        landingPageIntent.putExtra("USERNAME",username);
                         startActivity(landingPageIntent);
                     } else {
                         Toast.makeText(this, "Incorrect Password", Toast.LENGTH_SHORT).show();
@@ -94,6 +97,9 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                 if (username.equals(c.getString(6))) {
                     if (password.equals(c.getString(1))) {
                         landingPageIntent = new Intent(LoginActivity.this, StaffLandingActivity.class);
+
+                        //extract username to next intent
+                        landingPageIntent.putExtra("USERNAME",username);
                         startActivity(landingPageIntent);
                     } else {
                         Toast.makeText(this, "Incorrect Password", Toast.LENGTH_SHORT).show();
@@ -112,6 +118,8 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                 if (username.equals(c.getString(8))) {
                     if (password.equals(c.getString(1))) {
                         landingPageIntent = new Intent(LoginActivity.this, StudentLandingPage.class);
+                        //extract username to next intent
+                        landingPageIntent.putExtra("USERNAME",username);
                         startActivity(landingPageIntent);
                     } else {
                         Toast.makeText(this, "Incorrect Password", Toast.LENGTH_SHORT).show();

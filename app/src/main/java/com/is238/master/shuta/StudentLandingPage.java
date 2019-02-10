@@ -3,8 +3,11 @@ package com.is238.master.shuta;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class StudentLandingPage extends AppCompatActivity {
+    String studentName;
+    private TextView student;
 
     protected int counter=0;
 
