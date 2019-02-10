@@ -40,12 +40,14 @@ DatabaseHelper databaseHelper;
        String sub_name_str = sub_name.getText().toString();
        DatabaseClasses databaseClasses = new DatabaseClasses();
 
-       try{
+       try {
            Dao<DatabaseClasses.Subject, Integer> subjectIntegerDao = getHelper().getDao(DatabaseClasses.Subject.class);
-           subjectIntegerDao.createIfNotExists(databaseClasses.subjectCall(sub_name_str,sub_teacher_int));
+           subjectIntegerDao.createIfNotExists(databaseClasses.subjectCall(sub_name_str, sub_teacher_int));
 
            Toast.makeText(this, "Subject added successfully", Toast.LENGTH_LONG).show();
-           finish();
+
+           Intent sub_list_intent = new Intent(SubjectLandingPage.this, SubjectListActivity.class);
+           startActivity(sub_list_intent);
        }
        catch (SQLException e){
            e.printStackTrace();

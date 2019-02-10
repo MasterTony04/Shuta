@@ -37,13 +37,12 @@ public class SubjectListActivity extends AppCompatActivity {
 
 
     protected void init(){
-
     subjectList = findViewById(R.id.list_subject);
-    displayClasses();
+    displaySubject();
 
     }
 
-    private void displayClasses() {
+    private void displaySubject() {
         Cursor cursor = getContentResolver().query(Contract.SubjectContract.contentUri,null,null,null,null);
         String [] columns = {
                 Contract.SubjectContract.NAME
@@ -58,5 +57,9 @@ public class SubjectListActivity extends AppCompatActivity {
                 list_items
         );
         subjectList.setAdapter(cursorAdapter);
+    }
+
+    public void onAddClick(View view){
+
     }
 }

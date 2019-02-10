@@ -23,12 +23,11 @@ public class AdminActivity extends AppCompatActivity {
        savedInstanceState=getIntent().getExtras();
 
 
-       userView.setText(userName=savedInstanceState.getString("USERNAME"));
+       userView.setText(userName=savedInstanceState.getString("username"));
 
        classBtn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-
                Intent classIntent = new Intent(AdminActivity.this,ClassLandingPage.class);
                startActivity(classIntent);
            }
@@ -53,7 +52,7 @@ public class AdminActivity extends AppCompatActivity {
            public void onClick(View v) {
 
                //nothing is implemented here
-               Intent studentIntent = new Intent(AdminActivity.this, activity_student_registration.class);
+               Intent studentIntent = new Intent(AdminActivity.this, StudentListActivity.class);
                startActivity(studentIntent);
            }
        });

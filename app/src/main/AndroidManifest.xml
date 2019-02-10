@@ -12,6 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".StudentResultsActivity"></activity>
+        <activity android:name=".StudentListActivity" />
+        <activity android:name=".SubjectListActivity" />
         <activity android:name=".SubjectListActivity" />
         <activity
             android:name=".LoginActivity"

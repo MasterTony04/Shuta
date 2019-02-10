@@ -36,6 +36,8 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     CheckBox rememberMeChkBx;
     Spinner type;
     String user_type;
+    int student_id;
+    Bundle bundle = new Bundle();
 
 
     //DatabaseClasses
@@ -66,7 +68,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         String usernamedb = " ", passworddb = "";
 
 
-        if(user_type == "Admin"){
+        if(user_type.equals("Admin")){
             Cursor c = getContentResolver().query(Contract.AdminContract.CONTENT_URI, null, null, null, null);
             Log.e("fzghsdgfdfdg", "atleast nmepita hapa");
             while (c.moveToNext()) {
@@ -75,9 +77,8 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                 if (username.equals(c.getString(1))) {
                     if (password.equals(c.getString(0))) {
                         landingPageIntent = new Intent(LoginActivity.this, AdminActivity.class);
-
-                        //extract username to next intent
-                        landingPageIntent.putExtra("USERNAME",username);
+                        bundle.putString("username", username);
+                        landingPageIntent.putExtras(bundle);
                         startActivity(landingPageIntent);
                     } else {
                         Toast.makeText(this, "Incorrect Password", Toast.LENGTH_SHORT).show();
@@ -89,7 +90,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
             }
             c.close();
         }
-        if(user_type == "Teacher"){
+        if(user_type.equals("Teacher")){
 
             Cursor c = getContentResolver().query(Contract.TeacherContract.contentUri, null, null, null, null);
             while (c.moveToNext()) {
@@ -97,9 +98,8 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                 if (username.equals(c.getString(6))) {
                     if (password.equals(c.getString(1))) {
                         landingPageIntent = new Intent(LoginActivity.this, StaffLandingActivity.class);
-
-                        //extract username to next intent
-                        landingPageIntent.putExtra("USERNAME",username);
+                        bundle.putString("username", username);
+                        landingPageIntent.putExtras(bundle);
                         startActivity(landingPageIntent);
                     } else {
                         Toast.makeText(this, "Incorrect Password", Toast.LENGTH_SHORT).show();
@@ -111,15 +111,17 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
             }
             c.close();
         }
-        if(user_type == "Student"){
+        if(user_type.equals("Student")){
             Cursor c = getContentResolver().query(Contract.StudentContract.contentUri, null, null, null, null);
             while (c.moveToNext()) {
 
                 if (username.equals(c.getString(8))) {
                     if (password.equals(c.getString(1))) {
                         landingPageIntent = new Intent(LoginActivity.this, StudentLandingPage.class);
-                        //extract username to next intent
-                        landingPageIntent.putExtra("USERNAME",username);
+                        bundle.putString("student_name", username);
+
+                        landingPageIntent.putExtras(bundle);
+
                         startActivity(landingPageIntent);
                     } else {
                         Toast.makeText(this, "Incorrect Password", Toast.LENGTH_SHORT).show();

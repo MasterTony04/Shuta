@@ -13,22 +13,25 @@ public class StaffLandingActivity extends AppCompatActivity {
             TextView username;
     String userName;
 
+    Bundle teacherData = new Bundle();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_staff_landing);
         init();
-
-
         savedInstanceState=getIntent().getExtras();
+        userName = savedInstanceState.getString("username");
 
 
-        username.setText(userName=savedInstanceState.getString("USERNAME"));
+        username.setText(userName);
 
         subView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent viewsub = new Intent(StaffLandingActivity.this,SubjectViewActivity.class);
+                teacherData.putString("username",userName);
+                viewsub.putExtras(teacherData);
                 startActivity(viewsub);
             }
         });

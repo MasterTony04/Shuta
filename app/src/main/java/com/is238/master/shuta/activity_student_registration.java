@@ -124,7 +124,8 @@ public class activity_student_registration extends AppCompatActivity implements 
                 e.printStackTrace();
             }
             Toast.makeText(this, "Student registered Successfully", Toast.LENGTH_LONG).show();
-           finish();
+           Intent studentListIntent = new Intent(activity_student_registration.this, StudentListActivity.class);
+           startActivity(studentListIntent);
         }
     }
 

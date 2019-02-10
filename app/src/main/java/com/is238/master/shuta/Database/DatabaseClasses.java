@@ -400,10 +400,10 @@ public class DatabaseClasses {
     @AdditionalAnnotation.DefaultContentUri(authority = Contract.AUTHORITY, path = Contract.ResultsContract.CONTENT_URI_PATH)
     @AdditionalAnnotation.DefaultContentMimeTypeVnd(name = Contract.ResultsContract.MIMETYPE_NAME, type = Contract.ResultsContract.MIMETYPE_TYPE)
     @DatabaseTable(tableName = Contract.ResultsContract.TABLE_NAME)
-    public static class Results{
+    public class Results{
         @DatabaseField
         private String comments;
-        @DatabaseField(id = true, columnName = BaseColumns._ID)
+        @DatabaseField(generatedId = true, columnName = BaseColumns._ID)
         private int result_id;
         @DatabaseField
         private String regNo;
@@ -432,11 +432,11 @@ public class DatabaseClasses {
             this.marks = marks;
         }
 
-        public Results(int result_id, String regNo, int subject_id, int marks, String comments){
+        public Results(String regNo, int subject_id, int marks){
             setRegno(regNo);
             setResult_id(result_id);
             setSubject_id(subject_id);
-            setComments(comments);
+            setComments("Well done");
             setMarks(marks);
         }
 
@@ -568,6 +568,12 @@ public class DatabaseClasses {
     }
     public Subject subjectCall(String name, int teacher_id){
         return new Subject(name, teacher_id);
+    }
+    public Results resultsCall(){
+        return new Results();
+    }
+    public Results resultsCall(String regNo, int subject_id, int marks){
+        return new Results(regNo, subject_id, marks);
     }
 
 
