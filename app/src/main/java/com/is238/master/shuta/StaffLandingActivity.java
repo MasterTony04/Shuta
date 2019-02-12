@@ -20,8 +20,8 @@ public class StaffLandingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_staff_landing);
         init();
-        savedInstanceState=getIntent().getExtras();
-        userName = savedInstanceState.getString("username");
+        final Bundle data =getIntent().getExtras();
+        userName = data.getString("username");
 
 
         username.setText(userName);
@@ -31,6 +31,7 @@ public class StaffLandingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent viewsub = new Intent(StaffLandingActivity.this,SubjectViewActivity.class);
                 teacherData.putString("username",userName);
+                teacherData.putInt("id", data.getInt("id"));
                 viewsub.putExtras(teacherData);
                 startActivity(viewsub);
             }
@@ -40,6 +41,9 @@ public class StaffLandingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent viewclass = new Intent(StaffLandingActivity.this,ClassViewTeacher.class);
+                teacherData.putString("username",userName);
+                teacherData.putInt("id", data.getInt("id"));
+                viewclass.putExtras(teacherData);
                 startActivity(viewclass);
             }
         });

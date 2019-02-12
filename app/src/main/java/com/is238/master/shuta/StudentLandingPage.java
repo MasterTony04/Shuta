@@ -16,15 +16,13 @@ public class StudentLandingPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_landing_page);
-
-
     }
 
     public void viewStudentResults(View view) {
         Intent resultsIntent = new Intent(StudentLandingPage.this, StudentResultsActivity.class);
         String username = getIntent().getExtras().getString("student_name");
         Bundle bundle = new Bundle();
-        bundle.putString("student_name", username);
+        bundle.putString("username", username);
 
         resultsIntent.putExtras(bundle);
 

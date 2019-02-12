@@ -61,6 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="60dp"
             android:background="@color/btnColor"
+            android:onClick="onCancel"
             android:text="Cancel"
             android:textAllCaps="false" />
 

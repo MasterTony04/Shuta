@@ -3,6 +3,7 @@ package com.is238.master.shuta;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -40,6 +41,10 @@ DatabaseHelper databaseHelper;
        String sub_name_str = sub_name.getText().toString();
        DatabaseClasses databaseClasses = new DatabaseClasses();
 
+
+
+       Log.e("Selected position", Integer.toString(sub_teacher_int));
+
        try {
            Dao<DatabaseClasses.Subject, Integer> subjectIntegerDao = getHelper().getDao(DatabaseClasses.Subject.class);
            subjectIntegerDao.createIfNotExists(databaseClasses.subjectCall(sub_name_str, sub_teacher_int));
@@ -60,7 +65,6 @@ DatabaseHelper databaseHelper;
     protected void init(){
         sub_name = findViewById(R.id.subject_name);
         sub_teacher = findViewById(R.id.sub_tr_spinner);
-
         List<String> teachersName = new ArrayList<>();
 
        try{
@@ -74,15 +78,29 @@ DatabaseHelper databaseHelper;
            ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, teachersName);
            adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
            sub_teacher.setAdapter(adapter2);
+
        }
        catch (SQLException e){
            e.printStackTrace();
        }
+
+       sub_teacher.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+           @Override
+           public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+               sub_teacher_int = adapterView.getSelectedItemPosition();
+               Log.e("id", Integer.toString(sub_teacher_int));
+           }
+
+           @Override
+           public void onNothingSelected(AdapterView<?> adapterView) {
+
+           }
+       });
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-       sub_teacher_int =  parent.getSelectedItemPosition();
+
     }
 
     @Override

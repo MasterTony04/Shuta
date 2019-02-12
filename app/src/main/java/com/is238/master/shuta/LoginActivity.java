@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
         Intent landingPageIntent;
 
-        String username = reg_no_text.getText().toString();
+        String username = reg_no_text.getText().toString().trim();
         String password = passwordTxt.getText().toString();
 
         String usernamedb = " ", passworddb = "";
@@ -72,10 +72,8 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
             Cursor c = getContentResolver().query(Contract.AdminContract.CONTENT_URI, null, null, null, null);
             Log.e("fzghsdgfdfdg", "atleast nmepita hapa");
             while (c.moveToNext()) {
-                Log.e("Db", c.getString(1));
-
-                if (username.equals(c.getString(1))) {
-                    if (password.equals(c.getString(0))) {
+                if (username.equals(c.getString(c.getColumnIndex(Contract.AdminContract._ID)))) {
+                    if (password.equals(c.getString(c.getColumnIndex(Contract.AdminContract.PASSWORD)))) {
                         landingPageIntent = new Intent(LoginActivity.this, AdminActivity.class);
                         bundle.putString("username", username);
                         landingPageIntent.putExtras(bundle);
@@ -94,11 +92,13 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
             Cursor c = getContentResolver().query(Contract.TeacherContract.contentUri, null, null, null, null);
             while (c.moveToNext()) {
-
-                if (username.equals(c.getString(6))) {
-                    if (password.equals(c.getString(1))) {
+                if (username.equals(c.getString(c.getColumnIndex(Contract.TeacherContract.REGNO)))) {
+                    if (password.equals(c.getString(c.getColumnIndex(Contract.TeacherContract.PASSWORD)))) {
                         landingPageIntent = new Intent(LoginActivity.this, StaffLandingActivity.class);
-                        bundle.putString("username", username);
+                        String fullName = c.getString(c.getColumnIndex(Contract.TeacherContract.FIRST_NAME)) + " " + c.getString(c.getColumnIndex(Contract.TeacherContract.LAST_NAME));
+                        bundle.putString("regno", username);
+                        bundle.putString("username", fullName);
+                        bundle.putInt("id", c.getInt(c.getColumnIndex(Contract.TeacherContract._ID)));
                         landingPageIntent.putExtras(bundle);
                         startActivity(landingPageIntent);
                     } else {
@@ -115,10 +115,12 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
             Cursor c = getContentResolver().query(Contract.StudentContract.contentUri, null, null, null, null);
             while (c.moveToNext()) {
 
-                if (username.equals(c.getString(8))) {
-                    if (password.equals(c.getString(1))) {
+                if (username.equals(c.getString(c.getColumnIndex(Contract.StudentContract.REGNO)))) {
+                    if (password.equals(c.getString(c.getColumnIndex(Contract.StudentContract.PASSWORD)))) {
                         landingPageIntent = new Intent(LoginActivity.this, StudentLandingPage.class);
-                        bundle.putString("student_name", username);
+                        String fullName = c.getString(c.getColumnIndex(Contract.StudentContract.FIRST_NAME)) + " " + c.getString(c.getColumnIndex(Contract.StudentContract.LAST_NAME));
+                        bundle.putString("regno", username);
+                        bundle.putString("username", fullName);
 
                         landingPageIntent.putExtras(bundle);
 

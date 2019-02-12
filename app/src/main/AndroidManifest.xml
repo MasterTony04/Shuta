@@ -14,8 +14,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".StudentResultsActivity"></activity>
         <activity android:name=".StudentListActivity" />
-        <activity android:name=".SubjectListActivity" />
-        <activity android:name=".SubjectListActivity" />
+        <activity android:name=".SubjectListActivity"></activity>
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">

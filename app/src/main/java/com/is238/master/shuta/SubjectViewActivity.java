@@ -3,6 +3,8 @@ package com.is238.master.shuta;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
@@ -14,19 +16,22 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.PreparedQuery;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SubjectViewActivity extends AppCompatActivity {
     ListView tr_sub_list;
-    String username;
+    String username, regno;
     DatabaseHelper databaseHelper;
     int teacher_id;
+    Bundle data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subject_view);
-        username = savedInstanceState.getString("username");
+        savedInstanceState = getIntent().getExtras();
+        regno = savedInstanceState.getString("regno");
         init();
     }
 
@@ -36,30 +41,33 @@ public class SubjectViewActivity extends AppCompatActivity {
     }
 
     private void displayMySubs(){
-
+        List<String> subjectNames = new ArrayList<String>();
         //get teacher id
         getTeacherId();
 
-        String [] selectionArgs = {username};
-        String selection = Contract.SubjectContract.TEACHER_ID + " = ?";
+        try{
 
-        Cursor c  = getContentResolver().query(Contract.SubjectContract.contentUri,
-                null, selection,selectionArgs
-                , null);
+            Dao<DatabaseClasses.Subject, Integer> subjectDao = getHelper().getDao(DatabaseClasses.Subject.class);
 
-        String [] columns = {
-                Contract.SubjectContract.NAME
-        };
-        int [] list_items = {R.id.class_name};
-
-        SimpleCursorAdapter cursorAdapter = new SimpleCursorAdapter(
-                getApplicationContext(),
-                R.layout.class_list_row,
-                c,
-                columns,
-                list_items
+            PreparedQuery<DatabaseClasses.Subject> preparedQuery = subjectDao.queryBuilder()
+                    .where()
+                    .eq(Contract.SubjectContract.TEACHER_ID, teacher_id)
+                    .prepare();
+            List<DatabaseClasses.Subject> subjectList = subjectDao.query(preparedQuery);
+            for(DatabaseClasses.Subject subject: subjectList){
+                subjectNames.add(subject.getName());
+                Log.e("Subject", subject.getName());
+                Log.e("Teacher_id", Integer.toString(subject.getTeacher_id()));
+            }
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+        ArrayAdapter<String> subjectArrayAdapter = new ArrayAdapter<>(
+                this,android.R.layout.simple_list_item_1,
+                subjectNames
         );
-        tr_sub_list.setAdapter(cursorAdapter);
+        tr_sub_list.setAdapter(subjectArrayAdapter);
     }
     private DatabaseHelper getHelper() {
         if (databaseHelper == null) {
@@ -69,24 +77,8 @@ public class SubjectViewActivity extends AppCompatActivity {
     }
 
     private void getTeacherId(){
-        try{
-            DatabaseClasses databaseClasses = new DatabaseClasses();
-            DatabaseClasses.Teacher teacher = databaseClasses.teacherCall();
-
-            Dao<DatabaseClasses.Teacher, Integer> teacherIntegerDao = getHelper().getDao(DatabaseClasses.Teacher.class);
-            PreparedQuery<DatabaseClasses.Teacher> teacherPreparedQuery = teacherIntegerDao.queryBuilder()
-                    .where()
-                    .eq(Contract.TeacherContract.REGNO, username)
-                    .prepare();
-
-            List<DatabaseClasses.Teacher> teachers = teacherIntegerDao.query(teacherPreparedQuery);
-
-
-            teacher_id = teachers.get(0).getId();
-
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
+        data = getIntent().getExtras();
+        teacher_id = data.getInt("id");
     }
 
 }

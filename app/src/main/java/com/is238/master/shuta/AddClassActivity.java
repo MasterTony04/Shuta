@@ -28,7 +28,8 @@ public class AddClassActivity extends AppCompatActivity implements AdapterView.O
     private static EditText classnam;
     private static Button add;
     private DatabaseHelper databaseHelper;
-    private int stream, teacher;
+    private int teacher;
+    private char stream;
     private Spinner streamSpinner, teacherSpinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,16 +50,11 @@ public class AddClassActivity extends AppCompatActivity implements AdapterView.O
         List<String> teachersName = new ArrayList<>();
 
         if (getContentResolver().getType(Contract.StreamContract.contentUri) != null){
-            try {
-            Cursor c  = getContentResolver().query(Contract.StreamContract.contentUri, null,null,null, null);
-                while (c.moveToNext()) {
-//                    items.add(c.getString(1));
-                }
-                c.close();
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
+            items.add("A");
+            items.add("B");
+            items.add("C");
+            items.add("D");
+
             try {
                 Cursor teacherCursor = getContentResolver().query(Contract.TeacherContract.contentUri, null, null, null, null);
 
@@ -75,16 +71,10 @@ public class AddClassActivity extends AppCompatActivity implements AdapterView.O
         }
         else {
             try{
-                Dao<DatabaseClasses.Stream, Integer> streamDao = getHelper().getDao(DatabaseClasses.Stream.class);
-                List<DatabaseClasses.Stream> streamList = streamDao.queryForAll();
-                DatabaseClasses.Stream stream [] = streamList.toArray(new DatabaseClasses.Stream[0]);
-                for(DatabaseClasses.Stream stream1: stream){
-                        char letter = stream1.getLetter();
-                        Log.e("Streams", Character.toString(letter));
-                        Log.e("Streams", Integer.toString(stream1.getStream_id()));
-                        items.add(Character.toString(letter));
-
-                }
+                items.add("A");
+                items.add("B");
+                items.add("C");
+                items.add("D");
 
                 Dao<DatabaseClasses.Teacher, Integer> teacherDao = getHelper().getDao(DatabaseClasses.Teacher.class);
                 List<DatabaseClasses.Teacher> teacherList = teacherDao.queryForAll();
@@ -103,7 +93,7 @@ public class AddClassActivity extends AppCompatActivity implements AdapterView.O
 
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, items);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, items);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         streamSpinner.setAdapter(adapter);
         add=findViewById(R.id.btnadd);
@@ -112,17 +102,41 @@ public class AddClassActivity extends AppCompatActivity implements AdapterView.O
         ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, teachersName);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         teacherSpinner.setAdapter(adapter2);
+
+        teacherSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                teacher = adapterView.getSelectedItemPosition();
+                Log.e("Spinner", Integer.toString(teacher));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        streamSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+               stream = adapterView.getSelectedItem().toString().toCharArray()[0];
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
 
 
     public void onClassAdd(View view) {
         String className;
-        int stream, teacher;
 
         className = classnam.getText().toString();
-        stream = streamSpinner.getSelectedItemPosition();
         teacher = teacherSpinner.getSelectedItemPosition();
+        Log.e("Teacher_id", Integer.toString(teacher));
 
         ContentValues classValues = new ContentValues();
         DatabaseClasses databaseClasses = new DatabaseClasses();
@@ -130,7 +144,7 @@ public class AddClassActivity extends AppCompatActivity implements AdapterView.O
 
         classValues.put(Contract.ClassContract.TEACHER_ID, teacher);
         classValues.put(Contract.ClassContract.CLASS_NAME, className);
-        classValues.put(Contract.ClassContract.STREAM_ID, stream);
+        classValues.put(Contract.ClassContract.STREAM_ID, Character.toString(stream));
         if (getContentResolver().getType(Contract.ClassContract.CONTENT_URI) != null) {
             getContentResolver().insert(Contract.ClassContract.CONTENT_URI, classValues);
             Toast.makeText(getApplicationContext(), "Class Added successfully", Toast.LENGTH_LONG).show();

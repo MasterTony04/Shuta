@@ -166,21 +166,21 @@ public class DatabaseClasses {
         @DatabaseField
         private int teacher_id;
         @DatabaseField
-        private int stream_id;
+        private char stream_id;
 
         Class(){
 
         }
 
-        public int getStream_id() {
+        public char getStream_id() {
             return stream_id;
         }
 
-        public void setStream_id(int stream_id) {
+        public void setStream_id(char stream_id) {
             this.stream_id = stream_id;
         }
 
-        public Class(String class_name, int teacher_id, int stream_id){
+        public Class(String class_name, int teacher_id, char stream_id){
             this.class_name = class_name;
             this.teacher_id = teacher_id;
             this.stream_id = stream_id;
@@ -400,7 +400,7 @@ public class DatabaseClasses {
     @AdditionalAnnotation.DefaultContentUri(authority = Contract.AUTHORITY, path = Contract.ResultsContract.CONTENT_URI_PATH)
     @AdditionalAnnotation.DefaultContentMimeTypeVnd(name = Contract.ResultsContract.MIMETYPE_NAME, type = Contract.ResultsContract.MIMETYPE_TYPE)
     @DatabaseTable(tableName = Contract.ResultsContract.TABLE_NAME)
-    public class Results{
+    public static class Results{
         @DatabaseField
         private String comments;
         @DatabaseField(generatedId = true, columnName = BaseColumns._ID)
@@ -545,7 +545,7 @@ public class DatabaseClasses {
     public Teacher teacherCall(){
         return new Teacher();
     }
-    public Class classCall(String class_name, int teacher_id, int stream_id){
+    public Class classCall(String class_name, int teacher_id, char stream_id){
         return new Class(class_name,teacher_id, stream_id);
     }
     public Class classCall(){
