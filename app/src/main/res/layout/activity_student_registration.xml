@@ -7,9 +7,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".activity_student_registration"
     >
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
     >
 
 
@@ -35,30 +37,30 @@
         android:id="@+id/studentName"
         android:layout_width="303dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="52dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="8dp"
         android:width="300dp"
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintHorizontal_bias="0.584"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/studentRegistration" />
 
     <EditText
         android:id="@+id/studentRegNo"
-        android:layout_width="wrap_content"
+        android:layout_width="303dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:width="300dp"
+        android:width="303dp"
         android:ems="10"
         android:hint="@string/RegNumberHint"
         android:inputType="textPersonName"
@@ -72,17 +74,31 @@
         android:id="@+id/studentParent"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="24dp"
-        android:width="300dp"
+        android:width="303dp"
         android:ems="10"
         android:hint="@string/StudentParentNumber"
         android:inputType="textPersonName|phone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/st_residence" />
+    <EditText
+        android:id="@+id/st_dob"
+        android:layout_width="299dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:ems="10"
+        android:hint="@string/date_of_birth"
+        android:inputType="date"
+        />
+
 
 
     <EditText
@@ -103,14 +119,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/st_dob" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="32dp"
+        >
+
     <RadioGroup
         android:id="@+id/st_gender"
         android:layout_width="103dp"
         android:layout_height="72dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="50dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="0dp"
         android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.091"
@@ -135,14 +158,38 @@
             app:layout_constraintStart_toStartOf="@+id/st_gender"
             app:layout_constraintTop_toTopOf="@+id/st_gender" />
     </RadioGroup>
+    <Spinner
+        android:id="@+id/st_class"
+        android:layout_width="294dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+      />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="16dp"
+
+        >
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="65dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginEnd="72dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginRight="72dp"
         android:background="@color/btnColor"
         android:onClick="getStudentData"
@@ -157,7 +204,7 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="75dp"
         android:layout_marginLeft="80dp"
         android:background="@color/btnColor"
         android:onClick="cancel"
@@ -165,39 +212,13 @@
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <Spinner
-        android:id="@+id/st_class"
-        android:layout_width="294dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.524"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/studentParent" />
-
-    <EditText
-        android:id="@+id/st_dob"
-        android:layout_width="299dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:ems="10"
-        android:hint="@string/date_of_birth"
-        android:inputType="date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/st_gender" />
+    </LinearLayout>
 
 
 
-</android.support.constraint.ConstraintLayout>
+
+
+
+</LinearLayout>
 
 </ScrollView>
