@@ -39,13 +39,12 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     int student_id;
     Bundle bundle = new Bundle();
 
-
     //DatabaseClasses
     private DatabaseHelper databaseHelper = null;
 
     private final String LOG_TAG = getClass().getSimpleName();
 
-    public LoginActivity() throws SQLException {
+    public LoginActivity(){
     }
 
     @Override
@@ -64,9 +63,6 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
         String username = reg_no_text.getText().toString().trim();
         String password = passwordTxt.getText().toString();
-
-        String usernamedb = " ", passworddb = "";
-
 
         if(user_type.equals("Admin")){
             Cursor c = getContentResolver().query(Contract.AdminContract.CONTENT_URI, null, null, null, null);
@@ -121,9 +117,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                         String fullName = c.getString(c.getColumnIndex(Contract.StudentContract.FIRST_NAME)) + " " + c.getString(c.getColumnIndex(Contract.StudentContract.LAST_NAME));
                         bundle.putString("regno", username);
                         bundle.putString("username", fullName);
-
                         landingPageIntent.putExtras(bundle);
-
                         startActivity(landingPageIntent);
                     } else {
                         Toast.makeText(this, "Incorrect Password", Toast.LENGTH_SHORT).show();

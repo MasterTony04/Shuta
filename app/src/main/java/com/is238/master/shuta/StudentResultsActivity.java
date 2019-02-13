@@ -4,7 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.is238.master.shuta.Database.Contract;
 import com.is238.master.shuta.Database.DatabaseClasses;
 import com.is238.master.shuta.Database.DatabaseHelper;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
@@ -25,6 +27,7 @@ public class StudentResultsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_results);
+        init();
     }
 
     private void init(){
@@ -56,64 +59,70 @@ public class StudentResultsActivity extends AppCompatActivity {
             Dao<DatabaseClasses.Results, Integer> resultsIntegerDao = getHelper().getDao(DatabaseClasses.Results.class);
             PreparedQuery<DatabaseClasses.Results> resultsPreparedQuery = resultsIntegerDao.queryBuilder()
                     .where()
-                    .eq(resultsObj.getRegNo(), username)
+                    .eq(Contract.ResultsContract.REG_NO, username)
                     .prepare();
 
-             resultsList = resultsIntegerDao.query(resultsPreparedQuery);
-            resultsIntegerDao.query(resultsPreparedQuery);
+             resultsList = resultsIntegerDao.queryForAll();
+//            resultsIntegerDao.query(resultsPreparedQuery);
 
         }
         catch (SQLException e){
             e.printStackTrace();
         }
+        if(resultsList != null){
+            for(DatabaseClasses.Results result: resultsList){
 
-        for(DatabaseClasses.Results result: resultsList){
-            if(result.getSubject_id() == 0){
-                //Mathematics
-                String marks = Integer.toString(result.getMarks()) + "%";
-                math.setText(marks);
-            }
-            if(result.getSubject_id() == 1){
-                //Physics
-                String marks = Integer.toString(result.getMarks()) + "%";
-                phy.setText(marks);
-            }
-            if(result.getSubject_id() == 2){
-                //Chemistry
-                String marks = Integer.toString(result.getMarks()) + "%";
-                chem.setText(marks);
-            }
-            if(result.getSubject_id() == 3){
-                //Biology
-                String marks = Integer.toString(result.getMarks()) + "%";
-                bio.setText(marks);
-            }
-            if(result.getSubject_id() == 4){
-                //Geography
-                String marks = Integer.toString(result.getMarks()) + "%";
-                geo.setText(marks);
-            }
-            if(result.getSubject_id() == 5){
-                //History
-                String marks = Integer.toString(result.getMarks()) + "%";
-                hist.setText(marks);
-            }
-            if(result.getSubject_id() == 6){
-                //Civics
-                String marks = Integer.toString(result.getMarks()) + "%";
-                civics.setText(marks);
-            }
-            if(result.getSubject_id() == 7){
-                //Kiswahili
-                String marks = Integer.toString(result.getMarks()) + "%";
-                kiswahili.setText(marks);
-            }
-            if(result.getSubject_id() == 8){
-                //English
-                String marks = Integer.toString(result.getMarks()) + "%";
-                eng.setText(marks);
+                if(result.getSubject_id() == 0){
+                    //Mathematics
+                    String marks = Integer.toString(result.getMarks()) + "%";
+                    math.setText(marks);
+                }
+                if(result.getSubject_id() == 1){
+                    //Physics
+                    String marks = Integer.toString(result.getMarks()) + "%";
+                    phy.setText(marks);
+                }
+                if(result.getSubject_id() == 2){
+                    //Chemistry
+                    String marks = Integer.toString(result.getMarks()) + "%";
+                    chem.setText(marks);
+                }
+                if(result.getSubject_id() == 3){
+                    //Biology
+                    String marks = Integer.toString(result.getMarks()) + "%";
+                    bio.setText(marks);
+                }
+                if(result.getSubject_id() == 4){
+                    //Geography
+                    String marks = Integer.toString(result.getMarks()) + "%";
+                    geo.setText(marks);
+                }
+                if(result.getSubject_id() == 5){
+                    //History
+                    String marks = Integer.toString(result.getMarks()) + "%";
+                    hist.setText(marks);
+                }
+                if(result.getSubject_id() == 6){
+                    //Civics
+                    String marks = Integer.toString(result.getMarks()) + "%";
+                    civics.setText(marks);
+                }
+                if(result.getSubject_id() == 7){
+                    //Kiswahili
+                    String marks = Integer.toString(result.getMarks()) + "%";
+                    kiswahili.setText(marks);
+                }
+                if(result.getSubject_id() == 8){
+                    //English
+                    String marks = Integer.toString(result.getMarks()) + "%";
+                    eng.setText(marks);
+                }
+
             }
 
+        }
+        else {
+            Toast.makeText(this, "Results Not yet Published", Toast.LENGTH_SHORT).show();
         }
 
     }

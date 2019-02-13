@@ -52,6 +52,9 @@ public class StaffLandingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent resultUpload = new Intent(StaffLandingActivity.this,StaffUploadResult.class);
+                teacherData.putString("username",userName);
+                teacherData.putInt("id", data.getInt("id"));
+                resultUpload.putExtras(teacherData);
                 startActivity(resultUpload);
             }
         });
@@ -60,6 +63,9 @@ public class StaffLandingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent viewstudent = new Intent(StaffLandingActivity.this,StudentView.class);
+                teacherData.putString("username",userName);
+                teacherData.putInt("id", data.getInt("id"));
+                viewstudent.putExtras(teacherData);
                 startActivity(viewstudent);
             }
         });

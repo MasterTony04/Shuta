@@ -22,20 +22,18 @@
          />
 
     <Spinner
-        android:id="@+id/studentname"
+        android:id="@+id/studentSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="45dp"
-        >
+        android:layout_marginBottom="45dp">
 
     </Spinner>
 
     <Spinner
-        android:id="@+id/studentClass"
+        android:id="@+id/subjectSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="45dp"
-        >
+        android:layout_marginBottom="45dp">
 
     </Spinner>
 
@@ -70,6 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/btnColor"
+            android:onClick="onAdd"
             android:text="Save"
             android:textAllCaps="false" />
     </LinearLayout>
