@@ -92,7 +92,8 @@ public class StaffUploadResult extends AppCompatActivity implements AdapterView.
 
         try{
             Dao<DatabaseClasses.Results, Integer> results = getHelper().getDao(DatabaseClasses.Results.class);
-            results.createOrUpdate(new DatabaseClasses.Results(getRegNo(),selSubject +1,studentMarks));
+            Dao.CreateOrUpdateStatus status = results.createOrUpdate(new DatabaseClasses.Results(getRegNo(),selSubject +1,studentMarks));
+
         }
         catch (SQLException e){
             e.printStackTrace();
@@ -114,7 +115,7 @@ public class StaffUploadResult extends AppCompatActivity implements AdapterView.
                     .where()
                     .eq(Contract.StudentContract._ID, selStudent+1)
                     .prepare();
-            List<DatabaseClasses.Student> selStudentObj = student.queryForAll();
+            List<DatabaseClasses.Student> selStudentObj = student.query(preparedQuery);
 
             return selStudentObj.get(0).getRegNo();
         }
